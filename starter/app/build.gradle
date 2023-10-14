@@ -5,6 +5,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlinx-serialization'
     id 'kotlin-parcelize'
+    id 'com.google.dagger.hilt.android' version '2.44'
 }
 
 android {
@@ -50,6 +51,10 @@ dependencies {
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
 
+    // hilt
+    implementation "com.google.dagger:hilt-android:$version_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$version_hilt"
+
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
@@ -68,10 +73,11 @@ dependencies {
     implementation "com.squareup.moshi:moshi-adapters:$version_moshi"
 
     // Glide
-    // TODO: Add Glide Implementation
+    implementation "com.github.bumptech.glide:glide:$version_glide"
 
     // Room
     implementation "androidx.room:room-runtime:$version_room"
+    implementation "androidx.room:room-ktx:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
 
     // Location
