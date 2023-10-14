@@ -1,16 +1,50 @@
 package com.example.android.politicalpreparedness.election
 
-import androidx.lifecycle.ViewModel
+import android.annotation.SuppressLint
+import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDirections
+import com.example.android.politicalpreparedness.R
+import com.example.android.politicalpreparedness.util.BaseViewModel
+import com.example.android.politicalpreparedness.network.models.Election
+import com.example.android.politicalpreparedness.repository.ElectionRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+import com.example.android.politicalpreparedness.util.Result
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 //TODO: Construct ViewModel and provide election datasource
-class ElectionsViewModel: ViewModel() {
+@HiltViewModel
+@SuppressLint("StaticFieldLeak")
+class ElectionsViewModel @Inject constructor(
+    private val electionRepository: ElectionRepository,
+    @ApplicationContext private val context: Context
+): BaseViewModel() {
 
-    //TODO: Create live data val for upcoming elections
+    private val _upcomingElectionsLiveData = MutableLiveData<List<Election>>()
+    val upcomingElectionsLiveData: LiveData<List<Election>>
+        get() = _upcomingElectionsLiveData
 
-    //TODO: Create live data val for saved elections
+    val savedElectionsLiveData = electionRepository.getSavedElections()
 
-    //TODO: Create val and functions to populate live data for upcoming elections from the API and saved elections from local database
+    init {
+        refreshUpcomingElectionsList()
+    }
 
-    //TODO: Create functions to navigate to saved or upcoming election voter info
-
+    private fun refreshUpcomingElectionsList() {
+        _showLoadingLiveData.value = true
+        viewModelScope.launch {
+            when (val result = electionRepository.getUpcomingElectionsListFromNetwork()) {
+                is Result.Success -> _upcomingElectionsLiveData.value = result.data.elections
+                is Result.Failure -> {
+                    _upcomingElectionsLiveData.value = emptyList()
+                    _showSnackbar.value = context.getString(R.string.error_elections)
+                }
+            }
+            _showLoadingLiveData.value = false
+        }
+    }
 }
