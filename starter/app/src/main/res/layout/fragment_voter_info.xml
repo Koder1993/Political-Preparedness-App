@@ -39,9 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/default_padding"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="@string/election_data"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/election_date"
             app:layout_constraintTop_toBottomOf="@id/election_date" />
 
@@ -52,7 +52,6 @@
             android:layout_marginVertical="@dimen/default_padding"
             android:onClick="@{() -> viewModel.onURLSelected(viewModel.voterInfoLiveData.votingLocationFinderUrl)}"
             android:text="@string/voting_location_info"
-            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@id/election_date"
             app:layout_constraintTop_toBottomOf="@id/state_header"
             tools:text="State Locations" />
@@ -64,7 +63,6 @@
             android:layout_marginVertical="@dimen/default_padding"
             android:onClick="@{() -> viewModel.onURLSelected(viewModel.voterInfoLiveData.ballotInfoUrl)}"
             android:text="@string/voting_ballot_info"
-            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@id/election_date"
             app:layout_constraintTop_toBottomOf="@id/state_locations"
             tools:text="State Ballot" />
@@ -103,13 +101,13 @@
             android:layout_marginBottom="24dp"
             android:background="@color/colorPrimaryDark"
             android:onClick="@{() -> viewModel.onElectionStateChanged()}"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
             app:followElectionText="@{viewModel.isSavedElectionLiveData}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:textAlignment="center"
             tools:text="Follow Election" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

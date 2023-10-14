@@ -25,34 +25,34 @@
 
         <TextView
             android:id="@+id/office_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@{representative.office.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/representative_photo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/office_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@{representative.official.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/website_icon"
             app:layout_constraintStart_toEndOf="@+id/representative_photo"
             app:layout_constraintTop_toBottomOf="@+id/office_title" />
 
         <TextView
             android:id="@+id/party_name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@{representative.official.party}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toStartOf="@+id/website_icon"
             app:layout_constraintStart_toEndOf="@+id/representative_photo"
             app:layout_constraintTop_toBottomOf="@+id/office_name" />
