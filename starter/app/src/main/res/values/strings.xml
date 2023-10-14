@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Political Preparedness</string>
-
-    <!-- TODO: Add necessary string values -->
+    <string name="upcoming_elections_text">Upcoming Elections</string>
+    <string name="representative_button">Find my representatives</string>
+    <string name="saved_elections_text">My Saved Elections</string>
+    <string name="error_elections">Error while fetching upcoming elections: no network or server error</string>
+    <string name="error_voter_info">Error: no network or server error</string>
+    <string name="error_representatives">Error while fetching representatives: no network or server error</string>
+    <string name="election_data">Election Information</string>
+    <string name="voting_location_info">Voting Locations Information</string>
+    <string name="voting_ballot_info">Voting Ballot Information</string>
+    <string name="unfollow_election_button_text">Unfollow Election</string>
+    <string name="follow_election_button">Follow Election</string>
+    <string name="hint_address_line_1">Address Line 1</string>
+    <string name="hint_address_line_2">Address Line 2</string>
+    <string name="hint_city">City</string>
+    <string name="search_representative_text">Representative Search</string>
+    <string name="hint_zip">Zip</string>
+    <string name="find_my_representatives_button_text">Find My Representatives</string>
+    <string name="use_my_location_button_text">Use My Location</string>
+    <string name="representatives_list_title_text">Representatives</string>
+    <string name="location_required_error">Location services must be enabled to use the app</string>
+    <string name="permission_denied_explanation">You need to grant location permission in order to select the location.</string>
 
 </resources>
